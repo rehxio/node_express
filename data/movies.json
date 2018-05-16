@@ -1,1 +1,24 @@
-[{"name":"Avengers","id":"1"},{"name":"Guardianes de la galaxia","id":"2"},{"name":"Black Panther","id":"3"},{"name":"Thor","id":"4","like":true},{"name":"Capitana Marvel","id":"5","like":true}]
+[
+    {
+        "name": "Avengers",
+        "id": "1"
+    },
+    {
+        "name": "Guardianes de la galaxia",
+        "id": "2",
+        "like": false
+    },
+    {
+        "name": "Black Panther",
+        "id": "3"
+    },
+    {
+        "name": "Thor 2",
+        "id": "4"
+    },
+    {
+        "name": "Capitana Marvel",
+        "id": "5",
+        "like": true
+    }
+]

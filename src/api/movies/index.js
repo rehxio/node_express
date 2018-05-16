@@ -22,8 +22,7 @@ router.get('/', (req, res) => {
 
 // Añade una película nueva
 router.post('/', (req, res) => {
-  const movie = req.body;
-  controller.newMovie(movie, (err, movies) => {
+  controller.newMovie(req.body, (err, movies) => {
     if (err) {
       res.error(err);
     } else {

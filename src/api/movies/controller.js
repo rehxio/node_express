@@ -7,22 +7,22 @@ let movies;
 files.loadMovies(moviesData => movies = moviesData);
 
 // Filtra del array las que tienen la propiedad like a true.
-function getLikes() {
+const getLikes = () => {
   return movies.filter(movie => movie.like === true);
 }
 
 // Busca en el array la película a la que corresponde el ID que se le ha pasado.
-function getMovie(movieId) {
+const getMovie = (movieId) => {
   return movies.find(movie => movie.id === movieId);
 }
 
 // Muestra el array de películas completo.
-function getMovies() {
+const getMovies = () => {
   return movies;
 }
 
 // Añade una nueva película al array, asigna un ID consecutivo y lo guarda en el fichero.
-function newMovie(movie, callback) {
+const newMovie = (movie, callback) => {
   movie.id = `${movies.length + 1}`;
   movies.push(movie);
 
@@ -30,18 +30,18 @@ function newMovie(movie, callback) {
 }
 
 // Actualiza la información de una película del array, buscada por el ID y lo guarda en el fichero.
-function updateMovie(movie, callback) {
+const updateMovie = (movie, callback) => {
   const movieId = movie.id;
   let moviePosition = movies.findIndex(movie => movie.id === movieId);
   if (moviePosition >= 0) {
-    movies[moviePosition] = req.body;
+    movies[moviePosition] = movie;
   }
 
   files.saveMovies(movies, err => callback(err, movies));
 }
 
 // Borra una película del array seleccionada por el ID y guarda el array en el fichero.
-function deleteMovie(movieId, callback) {
+const deleteMovie = (movieId, callback) => {
   const moviePosition = movies.findIndex(movie => movie.id === movieId);
   if (moviePosition >= 0) {
     movies.splice(moviePosition, 1);
@@ -51,7 +51,7 @@ function deleteMovie(movieId, callback) {
 }
 
 // Esta función pone o quita el like a una película pasada por ID y lo guarda en el fichero.
-function setLikeMovie(movieId, likeValue, callback) {
+const setLikeMovie = (movieId, likeValue, callback) => {
   const movie = movies.find(movie => movie.id === movieId);
   if (movie) {
     movie.like = likeValue;

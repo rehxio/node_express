@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 // Lee el fichero y lo devuelve en el callback.
-function loadMovies(callback) {
+const loadMovies = (callback) => {
   const filePath = __dirname + '/../../data/movies.json';
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -15,7 +15,7 @@ function loadMovies(callback) {
 }
 
 // Guadra en el fichero lo que se le ha pasado por el parametro movies.
-function saveMovies(movies, callback) {
+const saveMovies = (movies, callback) => {
   const filePath = __dirname + '/../../data/movies.json';
   const moviesJSON = JSON.stringify(movies, null, 4);
   fs.writeFile(filePath, moviesJSON, (err, data) => {
@@ -33,17 +33,3 @@ module.exports = {
   loadMovies,
   saveMovies
 };
-
-
-/*function loadMovies(callback) {
-   const filePath = __dirname + '/../../../data/movies.json';
-   fs.readFile(filePath, (err, data) => {
-      if(err) {
-         console.error('Error', err);
-         callback([]);
-      } else {
-         callback(JSON.parse(data));
-      }
-   });
-};*/
-
