@@ -24,10 +24,15 @@ const escribeFichero = (movie) => {
    }
 }
 
-debugger
 // Mostrar todas las peliculas
 app.get('/movies', (req,res) => {
    res.json(movies);
+});
+
+// Muestra películas a las que se les ha dado like TERMINAR ESTE
+app.get('/movies/liked', (req,res) => {
+   const movie = movies.filter(movie => movie.like == true);
+   res.json(movie);
 });
 
 // Mostrar una película concreta
@@ -83,12 +88,6 @@ app.put('/movies/unlike/:id', (req,res) => {
    const moviePosition = movies.findIndex(movie => movie.id === movieId || movie.name === movieId);
    movies[moviePosition].like = false;
    res.json(movies);
-});
-
-// Muestra películas a las que se les ha dado like TERMINAR ESTE
-app.get('/movies/liked', (req,res) => {
-   const movie = movies.find(movie => movie.like === true);
-   res.json(movie);
 });
 
 // /src/api/movies/index.js mover el codigo
